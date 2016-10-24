@@ -24,10 +24,10 @@ F = 0;
 % Moment
 M = zeros(3,1);
 
-K_d = [ 1; 1; 1 ];
-K_p = [ 100; 100; 800 ];
+K_d = [ 2.4; 3.2; 60 ];
+K_p = [ 32; 32; 800 ];
 
-K_d_angle = [ 1; 1; 1 ];
+K_d_angle = [ 2.6; 2.6; 2.6 ];
 K_p_angle = [ 160; 160; 160 ];
 
 e_p = des_state.pos - state.pos;
@@ -46,7 +46,7 @@ end
 
 phi_c = 1/params.gravity * (r_dotdot_des(1) * sin(des_state.yaw) - r_dotdot_des(2) * cos(des_state.yaw));
 
-theta_c = 1/params.gravity * (r_dotdot_des(1) * cos(des_state.yaw) - r_dotdot_des(2) * sin(des_state.yaw));
+theta_c = 1/params.gravity * (r_dotdot_des(1) * cos(des_state.yaw) + r_dotdot_des(2) * sin(des_state.yaw));
 
 rot_c = [ phi_c; theta_c; des_state.yaw ];
 

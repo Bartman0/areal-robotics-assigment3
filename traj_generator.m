@@ -53,7 +53,7 @@ function [ desired_state ] = traj_generator(t, state, waypoints)
             t_scale = (t-traj_time(t_index))/d0(t_index);
             index = (t_index - 1) * 8 + 1 : t_index * 8;
             p = polynom(8, 0, t_scale)';
-            desired_state.pos = [ax(index) * p; ay(index) * p; ax(index) * p];
+            desired_state.pos = [ax(index) * p; ay(index) * p; az(index) * p];
         
             pdot = polynom(8, 1, t_scale)';
             desired_state.vel = [ax(index) * pdot; ay(index) * pdot; az(index) * pdot].*(1/d0(t_index));
